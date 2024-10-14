@@ -66,7 +66,7 @@ int Boom(int a) {
 		re = -1;
 	}
 	else {
-		int ar[1000];
+		int A[1000];
 		int m = 0;
 		while (a % 2 == 0) {
 			ar[m] = 2;
@@ -75,18 +75,18 @@ int Boom(int a) {
 		}
 		for (int i = 3; i * i <= a; i += 2) {
 			while (a % i == 0) {
-				ar[m] = i;
+				A[m] = i;
 				a /= i;
 				m += 1;
 			}
 		}
 		if (a > 2) {
-			ar[m] = a;
+			A[m] = a;
 			m += 1;
 		}
 		if (m == 2) {
 			for (int i = 0; i < m; i++) {
-				if (ar[0] != ar[1]) {
+				if (A[0] != A[1]) {
 					re = 0;
 				}
 				else {

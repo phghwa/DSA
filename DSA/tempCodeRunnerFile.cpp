@@ -63,33 +63,34 @@ using namespace std;
 int Boom(int a) {
 	int re = 0;
 	if (a < 6) {
-		re = - 1;
+		re = -1;
 	}
 	else {
-		int A[1000];
+		int ar[1000];
 		int m = 0;
 		while (a % 2 == 0) {
-			A[m] = 2;
+			ar[m] = 2;
 			a /= 2;
 			m += 1;
 		}
 		for (int i = 3; i * i <= a; i += 2) {
 			while (a % i == 0) {
-				A[m] = i;
+				ar[m] = i;
 				a /= i;
 				m += 1;
 			}
 		}
 		if (a > 2) {
-			A[m] = a;
+			ar[m] = a;
 			m += 1;
 		}
 		if (m == 2) {
 			for (int i = 0; i < m; i++) {
-				if (A[0] != A[1]) {
+				if (ar[0] != ar[1]) {
 					re = 0;
-				} else {
-				    re = -1;
+				}
+				else {
+					re = -1;
 				}
 			}
 		}
@@ -100,33 +101,53 @@ int Boom(int a) {
 	return re;
 }
 void checkBlum(int arr[], int l, int b) {
-    int count = 0;
-	for (int i = 0; i < l; i++) {
+	int count = 0;
+	if (count == 0) {
+		cout << "Khong co cap so thoa man";
+	}
+	else {
+		for (int i = 0; i < l; i++) {
 		for (int j = i + 1; j < l; j++) {
-		    int sum = arr[i] + arr[j];
-		    if(sum < b){
-		        if(Boom(arr[i]) == 0 && Boom(arr[j]) == 0){
-		            if(Boom(sum) == 0){
-		                cout << "[" << arr[i] << ", " << arr[j] << "] ";
-		                count += 1;
-		            }
-		        }
-		    }
+			int sum = arr[i] + arr[j];
+			if (sum < b) {
+				if (Boom(arr[i]) == 0 && Boom(arr[j]) == 0) {
+					if (Boom(sum) == 0) {
+						cout << "(" << arr[i] << ", " << arr[j] << ") ";
+						count += 1;
+					}
+				}
+			}
 		}
 	}
-	if(count == 0){
-	    cout << "Khong co cap so thoa man";
 	}
 }
-int main(void) {
-	int N;
-	cin >> N;
-	int n;
-	cin >> n;
-	int mang[n];
-	for (int k = 0; k < n; k++) {
-		cin >> mang[k];
+
+int main() {
+	int N, M;
+	cin >> N >> M;
+	int mang[1000];
+	int bien = 0;
+	cout << "Day cac so Blum nho hon " << N << " la: " << endl;
+	for (int k = 6; k < N; k++) {
+		if (Boom(k) == 0) {
+			mang[bien] = k;
+			bien += 1;
+		}
 	}
-	checkBlum(mang, n, N);
+	for (int k = 0; k < bien; k++) {
+		cout << mang[k] << " ";
+	}
+	cout << "\nCac cap so Blum co tong la 1 so Blum nho hon " << N << " la: " << endl;
+	checkBlum(mang, bien, N);
+	int j;
+	for (j = 0; j < bien; j++) {
+		if (mang[j] == M) {
+			cout << "\nSo Blum M co ton tai trong day" << endl;
+			break;
+		}
+	}
+	if (j == bien) {
+		cout << "\nKhong ton tai so Blum M trong day" << endl;
+	}
 	return 0;
 }

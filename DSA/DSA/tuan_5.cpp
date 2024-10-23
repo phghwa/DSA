@@ -127,7 +127,7 @@ int main() {
 	int mang[1000];
 	int bien = 0;
 	cout << "Day cac so Blum nho hon " << N << " la: " << endl;
-	for (int k = 6; k < N; k++) {
+	for (int k = 4; k < N; k++) {
 		if (Boom(k) == 0) {
 			mang[bien] = k;
 			bien += 1;

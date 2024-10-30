@@ -55,5 +55,8 @@ int main() {
     cout << "Da thuc g(x): ";
     inDT(g);
 
+    delete[] f.a;
+    delete[] g.a;
+
     return 0;
 }

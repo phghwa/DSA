@@ -12,7 +12,7 @@ void find_years_with_same_data(struct Population population[], int size) {
     for (int i = 0; i < size; i++) {
         for (int j = i + 1; j < size; j++) {
             if (population[i].data == population[j].data) {
-                cout << population[i].year << ", " << population[i].data << "\t" << population[j].year << ", " << population[j].data << endl;
+                cout << population[i].year << ",   " << population[i].data << "\t" << population[j].year << ", " << population[j].data << endl;
             }
         }
     }

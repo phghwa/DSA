@@ -235,7 +235,7 @@ void print_sentence(sentences& w) {
 	}
 }
 
-//Dem so tu trong cau
+//Dem so tu vung trong cau
 int dem(tu* head) {
     int dem = 0;
     tu* current = head;

@@ -14,9 +14,9 @@ struct Product {
 struct Customer {
     string name;
     Product* products[MAX_PRODUCTS];
-    int quantities[MAX_PRODUCTS];
-    int numProducts;
-    double amount;
+    int quantities[MAX_PRODUCTS]; // số lượng mỗi sản phẩm
+    int numProducts; // số lượng sản phẩm
+    double amount; // tổng tiền của mỗi khách hàng
 };
 
 // Tạo node
@@ -33,7 +33,7 @@ struct Queue {
 };
 
 Customer* processedCustomers[MAX_CUSTOMERS]; // lưu trữ thông tin khách hàng đã thanh toán
-int processedCount = 0;
+int processedCount = 0; // số lượng khách hàng đã thanh toán
 
 double totalRevenue = 0.0; // tổng tiền thu được sau phiên làm việc
 int productACount = 0; // đếm số sản phẩm A đã bán
@@ -107,10 +107,7 @@ void calculateAmount(Customer* customer) {
         if (product->name == "A") {
             productACount += quantity;
         }
-
-        
     }
-
 }
 
 // In hóa đơn

@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//Định nghĩa Subsubsection
 typedef struct Subsubsection {
     string name;
     int page_L;                                 // con trái
@@ -12,6 +13,7 @@ typedef struct Subsubsection {
     Subsubsection(string n, int l, int r) : name(n), page_L(l), page_R(r), next(nullptr) {}
 } *subsubsection;
 
+// Định nghĩa Subsection
 typedef struct Subsection {
     string name;
     int totalPages;
@@ -21,6 +23,7 @@ typedef struct Subsection {
     Subsection(string n) : name(n), totalPages(0), next(nullptr), head(nullptr) {}
 } *subsection;
 
+// Định nghĩa Section
 typedef struct Section {
     string name;
     int totalPages;
@@ -30,6 +33,7 @@ typedef struct Section {
     Section(string n) : name(n), totalPages(0), next(nullptr), head(nullptr) {}
 } *section;
 
+// Định nghĩa Chapter
 typedef struct Chapter {
     string name;
     int totalPages;
@@ -39,6 +43,7 @@ typedef struct Chapter {
     Chapter(string n) : name(n), totalPages(0), next(nullptr), head(nullptr) {}
 } *chapter;
 
+// Định nghĩa Book
 typedef struct Book {
     string name;
     int totalPages;
@@ -309,7 +314,9 @@ bool findAndDelete(book my_book, const string& name) {
 
     int main() {
         book myBook = new Book("My Book");
-    
+
+    // Thêm mục lục
+        //Thêm chương 1
         myBook->head = new Chapter("Chapter 1");
         myBook->head->head = new Section("Section 1.1");
         myBook->head->head->head = new Subsection("Subsection 1.1.1");
@@ -317,11 +324,13 @@ bool findAndDelete(book my_book, const string& name) {
         myBook->head->head->head->next = new Subsection("Subsection 1.1.2");
         myBook->head->head->head->next->head = new Subsubsection("Subsubsection 1.1.2.1", 1, 9);
         
+        //Thêm chương 2
         myBook->head->next = new Chapter("Chapter 2");
         myBook->head->next->head = new Section("Section 2.1");
         myBook->head->next->head->head = new Subsection("Subsection 2.1.1");
         myBook->head->next->head->head->head = new Subsubsection("Subsubsection 2.1.1.1", 1, 10);
         
+        // Thêm chương 3
         myBook->head->next->next = new Chapter("Chapter 3");
         myBook->head->next->next->head = new Section("Section 3.1");
         myBook->head->next->next->head->head = new Subsection("Subsection 3.1.1");

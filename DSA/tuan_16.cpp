@@ -119,7 +119,7 @@ int main() {
         root = insert(root, value);
     }
 
-    cout << "Duyet cay AVL da xay dung theo kieu tien to: \n";
+    cout << "Duyet cay AVL da xay dung theo kieu tien to:" << endl;
     preOrder(root);
 
     return 0;
